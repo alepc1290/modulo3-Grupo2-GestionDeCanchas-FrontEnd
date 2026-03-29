@@ -5,81 +5,133 @@ import { ArrowRight, X, ChevronLeft, ChevronRight, ZoomIn, Image } from 'lucide-
 const CATEGORIAS = ['Todas', 'Canchas', 'Instalaciones', 'Eventos', 'Nocturnas']
 
 const FOTOS = [
-  {
-    id: 1,
-    src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774668920/Captura_de_pantalla_2026-03-28_003424_wlohvq.png',
-    thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774668920/Captura_de_pantalla_2026-03-28_003424_wlohvq.png',
-    categoria: 'Canchas',
-    featured: true,
-  },
-  {
-    id: 2,
-    src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774668886/WhatsApp_Image_2026-03-28_at_12.12.13_AM_jpmvvs.jpg',
-    thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774668886/WhatsApp_Image_2026-03-28_at_12.12.13_AM_jpmvvs.jpg',
-    categoria: 'Canchas',
-    titulo: 'Cancha 2 — Fútbol 5',
-    desc: 'Iluminación LED de alta potencia. Disponible de noche.',
-  },
-  {
-    id: 3,
-    src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774670517/WhatsApp_Image_2026-03-27_at_11.52.59_PM_1_shbdkt.jpg',
-    thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774670517/WhatsApp_Image_2026-03-27_at_11.52.59_PM_1_shbdkt.jpg',
-    categoria: 'Nocturnas',
-  },
-  {
-    id: 4,
-    src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669192/WhatsApp_Image_2026-03-27_at_11.52.59_PM_lonwtj.jpg',
-    thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669192/WhatsApp_Image_2026-03-27_at_11.52.59_PM_lonwtj.jpg',
-    categoria: 'Canchas',
-  },
-  {
-    id: 5,
-    src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669431/WhatsApp_Image_2026-03-28_at_12.40.46_AM_tvfz3s.jpg',
-    thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669431/WhatsApp_Image_2026-03-28_at_12.40.46_AM_tvfz3s.jpg',
-    categoria: 'Instalaciones',
-  },
-  {
-    id: 6,
-    src: 'https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=600&q=75',
-    categoria: 'Eventos',
-    featured: true,
-  },
-  {
-    id: 7,
-    src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669602/WhatsApp_Image_2026-03-28_at_12.46.22_AM_ni6wyx.jpg',
-    thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669602/WhatsApp_Image_2026-03-28_at_12.46.22_AM_ni6wyx.jpg',
-    categoria: 'Eventos',
-  },
-  {
-    id: 8,
-    src: 'https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=600&q=75',
-    categoria: 'Nocturnas',
-  },
-  {
-    id: 9,
-    src: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=600&q=75',
-    categoria: 'Instalaciones',
-  },
-  {
-    id: 10,
-    src: 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=600&q=75',
-    categoria: 'Canchas',
-  },
-  {
-    id: 11,
-    src: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=75',
-    categoria: 'Eventos',
-  },
-  {
-    id: 12,
-    src: 'https://images.unsplash.com/photo-1487466365202-1afdb86c764e?w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1487466365202-1afdb86c764e?w=600&q=75',
-    categoria: 'Nocturnas',
-    featured: true,
-  },
+    {
+        id: 1,
+        src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774668920/Captura_de_pantalla_2026-03-28_003424_wlohvq.png',
+        thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774668920/Captura_de_pantalla_2026-03-28_003424_wlohvq.png',
+        categoria: 'Canchas',
+        featured: true,
+    },
+    {
+        id: 2,
+        src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774668886/WhatsApp_Image_2026-03-28_at_12.12.13_AM_jpmvvs.jpg',
+        thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774668886/WhatsApp_Image_2026-03-28_at_12.12.13_AM_jpmvvs.jpg',
+        categoria: 'Canchas',
+        titulo: 'Cancha 2 — Fútbol 5',
+        desc: 'Iluminación LED de alta potencia. Disponible de noche.',
+    },
+    {
+        id: 3,
+        src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774670517/WhatsApp_Image_2026-03-27_at_11.52.59_PM_1_shbdkt.jpg',
+        thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774670517/WhatsApp_Image_2026-03-27_at_11.52.59_PM_1_shbdkt.jpg',
+        categoria: 'Nocturnas',
+    },
+    {
+        id: 4,
+        src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669192/WhatsApp_Image_2026-03-27_at_11.52.59_PM_lonwtj.jpg',
+        thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669192/WhatsApp_Image_2026-03-27_at_11.52.59_PM_lonwtj.jpg',
+        categoria: 'Canchas',
+    },
+    {
+        id: 5,
+        src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669431/WhatsApp_Image_2026-03-28_at_12.40.46_AM_tvfz3s.jpg',
+        thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669431/WhatsApp_Image_2026-03-28_at_12.40.46_AM_tvfz3s.jpg',
+        categoria: 'Instalaciones',
+    },
+    {
+        id: 6,
+        src: 'https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=1200&q=80',
+        thumb: 'https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=600&q=75',
+        categoria: 'Eventos',
+        featured: true,
+    },
+    {
+        id: 7,
+        src: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669602/WhatsApp_Image_2026-03-28_at_12.46.22_AM_ni6wyx.jpg',
+        thumb: 'https://res.cloudinary.com/proyecto3/image/upload/v1774669602/WhatsApp_Image_2026-03-28_at_12.46.22_AM_ni6wyx.jpg',
+        categoria: 'Eventos',
+    },
+    {
+        id: 8,
+        src: 'https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=1200&q=80',
+        thumb: 'https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=600&q=75',
+        categoria: 'Nocturnas',
+    },
+    {
+        id: 9,
+        src: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=1200&q=80',
+        thumb: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=600&q=75',
+        categoria: 'Instalaciones',
+    },
+    {
+        id: 10,
+        src: 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=1200&q=80',
+        thumb: 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=600&q=75',
+        categoria: 'Canchas',
+    },
+    {
+        id: 11,
+        src: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80',
+        thumb: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=75',
+        categoria: 'Eventos',
+    },
+    {
+        id: 12,
+        src: 'https://images.unsplash.com/photo-1487466365202-1afdb86c764e?w=1200&q=80',
+        thumb: 'https://images.unsplash.com/photo-1487466365202-1afdb86c764e?w=600&q=75',
+        categoria: 'Nocturnas',
+        featured: true,
+    },
 ]
+function Lightbox({ foto, onClose, onPrev, onNext, total, index }) {
+    useEffect(() => {
+        const handler = (e) => {
+            if (e.key === 'Escape') onClose()
+            if (e.key === 'ArrowLeft') onPrev()
+            if (e.key === 'ArrowRight') onNext()
+        }
+        window.addEventListener('keydown', handler)
+        return () => window.removeEventListener('keydown', handler)
+    }, [onClose, onPrev, onNext])
+
+    return (
+        <div
+            className="fixed inset-0 z-50 bg-carbon-900/97 backdrop-blur flex flex-col animate-fade-in"
+            onClick={onClose}>
+            <div
+                className="flex items-center justify-between px-6 py-4 border-b border-carbon-700 flex-shrink-0"
+                onClick={(e) => e.stopPropagation()}>
+                <div className="flex items-center gap-3">
+                    <span className="tag">{foto.categoria}</span>
+                    <span className="font-display font-700 text-white uppercase text-sm tracking-wide hidden sm:block">
+                        {foto.titulo}
+                    </span>
+                </div>
+                <div className="flex items-center gap-4">
+                    <span className="font-mono text-carbon-400 text-xs">
+                        {index + 1} / {total}
+                    </span>
+                    <button
+                        onClick={onClose}
+                        className="w-8 h-8 border border-carbon-600 hover:border-verde-600 flex items-center justify-center text-carbon-300 hover:text-white transition-colors">
+                        <X size={16} />
+                    </button>
+                </div>
+            </div>
+            <div
+                className="flex-1 flex items-center justify-center p-4 relative"
+                onClick={(e) => e.stopPropagation()}>
+                <button
+                    onClick={onPrev} className="absolute left-4 z-10 w-10 h-10 border border-carbon-600 hover:border-verde-600 bg-carbon-800/80 flex items-center justify-center text-carbon-300 hover:text-white transition-colors">
+                    <ChevronLeft size={20} />
+                </button>
+                <img key={foto.id} src={foto.src} alt={foto.titulo} className="max-h-[70vh] max-w-full object-contain border border-carbon-700 animate-fade-in"/>
+                <button
+                    onClick={onNext} className="absolute right-4 z-10 w-10 h-10 border border-carbon-600 hover:border-verde-600 bg-carbon-800/80 flex items-center justify-center text-carbon-300 hover:text-white transition-colors">
+                    <ChevronRight size={20} />
+                </button>
+            </div>
+
+        </div>
+    )
+}
