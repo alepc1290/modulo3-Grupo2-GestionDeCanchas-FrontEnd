@@ -135,3 +135,99 @@ function Lightbox({ foto, onClose, onPrev, onNext, total, index }) {
         </div>
     )
 }
+function FotoCard({ foto, onOpen, index }) {
+  const isFeatured = foto.featured
+
+  return (
+    <div
+      className={`group relative overflow-hidden border border-carbon-600 hover:border-verde-600 transition-all duration-300 cursor-pointer bg-carbon-800 ${
+        isFeatured ? 'md:col-span-2 md:row-span-2' : ''
+      }`}
+      style={{ animationDelay: `${index * 60}ms` }}
+      onClick={() => onOpen(foto)}>
+      <img
+        src={foto.thumb}
+        alt={foto.titulo}
+        className={`w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 ${
+          isFeatured ? 'h-64 md:h-full md:min-h-[340px]' : 'h-48'
+        }`}/>
+      <div className="absolute inset-0 bg-gradient-to-t from-carbon-900/90 via-carbon-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-200 -translate-y-1 group-hover:translate-y-0">
+        <span className="tag text-[10px]">{foto.categoria}</span>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 h-px bg-verde-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+    </div>
+  )
+}
+ function GaleriaPage() {
+  const [categoriaActiva, setCategoriaActiva] = useState('Todas')
+  const [lightbox, setLightbox] = useState(null)
+
+  const fotosFiltradas = categoriaActiva === 'Todas'
+    ? FOTOS
+    : FOTOS.filter((f) => f.categoria === categoriaActiva)
+
+  const abrirLightbox = useCallback((foto) => {
+    setLightbox(fotosFiltradas.findIndex((f) => f.id === foto.id))
+    document.body.style.overflow = 'hidden'
+  }, [fotosFiltradas])
+
+  const cerrarLightbox = useCallback(() => {
+    setLightbox(null)
+    document.body.style.overflow = ''
+  }, [])
+
+  const irAPrev = useCallback(() => {
+    setLightbox((i) => (i - 1 + fotosFiltradas.length) % fotosFiltradas.length)
+  }, [fotosFiltradas.length])
+
+  const irANext = useCallback(() => {
+    setLightbox((i) => (i + 1) % fotosFiltradas.length)
+  }, [fotosFiltradas.length])
+
+  return (
+    <>
+      {/* ── HERO ──────────────────────────────────────────── */}
+      <section className="relative py-24 overflow-hidden border-b border-carbon-700">
+        <div className="absolute inset-0 bg-gradient-to-br from-carbon-900 via-carbon-800 to-carbon-900" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-verde-500/50 to-transparent" />
+        <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-verde-500/20 to-transparent hidden lg:block" />
+
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(34,197,94,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.5) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+
+        <div className="relative max-w-6xl mx-auto px-4">
+          <p
+            className="section-label mb-4 animate-fade-up opacity-0"
+            style={{ animationFillMode: 'forwards' }}
+          >
+            — Mirá lo que te espera
+          </p>
+          <h1
+            className="font-display font-900 text-white uppercase leading-none text-6xl md:text-8xl mb-6 animate-fade-up opacity-0"
+            style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
+          >
+            Nuestras
+            <br />
+            <span className="text-verde-400">instalaciones.</span>
+          </h1>
+          <p
+            className="text-carbon-300 text-lg max-w-lg animate-fade-up opacity-0"
+            style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
+          >
+            Canchas de primer nivel, vestuarios modernos y un ambiente que te va a hacer
+            querer volver cada semana.
+          </p>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default GaleriaPage
