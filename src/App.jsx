@@ -29,9 +29,6 @@ function App() {
                 <Route element={<AdminRoute />}>
                   <Route path="/admin" element={<PanelAdministrador />} />
                 </Route>
-                <Route element={<PrivateRoute />}>
-                <Route path="/reservas" element={<Reservas />} />
-              </Route>
               </Routes>
             </main>
             <Footer />
