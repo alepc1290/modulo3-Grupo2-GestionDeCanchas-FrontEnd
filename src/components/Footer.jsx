@@ -46,9 +46,11 @@ function Footer() {
           <div>
             <h4 className="section-label mb-4">Contacto</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-carbon-300 text-sm">
+              <li className="flex items-center gap-2 text-carbon-300 text-sm hover:text-verde-400 text-sm transition-colors">
                 <MapPin size={14} className="text-verde-500 flex-shrink-0" />
+                <a href="https://www.google.com/maps?client=opera-gx&hs=pfc&sca_esv=918d0965cae38051&biw=1878&bih=969&output=search&q=RollingCode+School&source=lnms&fbs=ADc_l-bpk8W4E-qsVlOvbGJcDwpn60DczFdcvPnuv8WQohHLTaMb_WtLz8zQ41bNqiqMK_2tAHCL8fGF2xU6_n5bwc1V3vFmQuRIG-bvH-sIZyV2LbLX-JmUis5A72EqkpI1mhjnS_FAIXeb5XQWYfW8fsJ8igzep0ixTQaFgWlBdRkD8xhsxTJzcG_0ZiVfJTPo05kMPhycaIfa1OiudlKTGxZX3KitEf2nh_dv98F69QxpGGzYT2A&entry=mc&ved=1t:200715&ictx=111">
                 General Paz 576, San Miguel de Tucumán.
+                </a>
               </li>
               <li className="flex items-center gap-2 text-carbon-300 text-sm">
                 <Phone size={14} className="text-verde-500 flex-shrink-0" />
