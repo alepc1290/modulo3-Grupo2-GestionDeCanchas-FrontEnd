@@ -19,7 +19,7 @@ function Footer() {
               </span>
             </Link>
             <p className="text-carbon-300 text-sm leading-relaxed">
-              El mejor complejo deportivo de la ciudad. Canchas de primer nivel para tu próximo partido.
+              El mejor complejo deportivo de la ciudad. Siempre buscamos las canchas de primer nivel para tu próximo partido.
             </p>
           </div>
 
@@ -32,6 +32,7 @@ function Footer() {
                 { to: '/productos', label: 'Tienda' },
                 { to: '/GaleriaPage', label: 'Galeria de Imagenes' },
                 { to: '/ContactoPage', label: 'Contactanos' },
+                { to: '/NosotrosPage', label: 'Acerca de Nosotros' },
               ].map(({ to, label }) => (
                 <li key={to}>
                   <Link to={to} className="text-carbon-300 hover:text-verde-400 text-sm transition-colors">
@@ -51,7 +52,7 @@ function Footer() {
               </li>
               <li className="flex items-center gap-2 text-carbon-300 text-sm">
                 <Phone size={14} className="text-verde-500 flex-shrink-0" />
-                +54 9 381 365 7948
+                +54 9 381 620 3897
               </li>
               <li className="flex items-center gap-2 text-carbon-300 text-sm">
                 <Mail size={14} className="text-verde-500 flex-shrink-0" />

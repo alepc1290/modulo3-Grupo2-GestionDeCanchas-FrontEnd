@@ -22,7 +22,7 @@ const CONTACT_INFO = [
   {
     icon: Phone,
     label: "Teléfono",
-    value: "+54 9 381 365 7948",
+    value: "+54 9 381 620 3897",
     sub: "WhatsApp disponible",
   },
   {
