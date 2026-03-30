@@ -21,6 +21,7 @@ function App() {
             <main className="flex-1">
               <Routes>
                 <Route path="/" element={<Inicio />} />
+                <Route path="/ContactoPage" element={<ContactoPage />} />
                 <Route path="/GaleriaPage" element={<GaleriaPage />} />
                 <Route element={<AdminRoute />}>
                   <Route path="/admin" element={<PanelAdministrador />} />
