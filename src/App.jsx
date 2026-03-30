@@ -33,7 +33,6 @@ function App() {
                 <Route path="/GaleriaPage" element={<GaleriaPage />} />
                 <Route path="/NosotrosPage" element={<NosotrosPage />} />
                 <Route path="/verify-email" element={<VerifyEmail />} />
-
                 <Route path="/auth/google/success" element={<GoogleAuthSuccess />} />
 
                 <Route element={<AdminRoute />}>
