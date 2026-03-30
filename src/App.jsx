@@ -8,6 +8,7 @@ import GaleriaPage from './pages/GaleriaPage'
 import AdminRoute from './components/RutaAdmin'
 import PanelAdministrador from './pages/administrador'
 import NosotrosPage from './pages/NosotrosPage'
+import ContactoPage from './pages/ContactoPage'
 
 
 function App() {
