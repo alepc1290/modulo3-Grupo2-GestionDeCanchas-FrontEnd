@@ -187,7 +187,6 @@ function FotoCard({ foto, onOpen, index }) {
 
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden border-b border-carbon-700">
         <div className="absolute inset-0 bg-gradient-to-br from-carbon-900 via-carbon-800 to-carbon-900" />
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-verde-500/50 to-transparent" />
@@ -199,33 +198,97 @@ function FotoCard({ foto, onOpen, index }) {
             backgroundImage:
               'linear-gradient(rgba(34,197,94,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.5) 1px, transparent 1px)',
             backgroundSize: '48px 48px',
-          }}
-        />
+          }}/>
 
         <div className="relative max-w-6xl mx-auto px-4">
           <p
             className="section-label mb-4 animate-fade-up opacity-0"
-            style={{ animationFillMode: 'forwards' }}
-          >
+            style={{ animationFillMode: 'forwards' }}>
             — Mirá lo que te espera
           </p>
           <h1
             className="font-display font-900 text-white uppercase leading-none text-6xl md:text-8xl mb-6 animate-fade-up opacity-0"
-            style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
-          >
+            style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
             Nuestras
             <br />
             <span className="text-verde-400">instalaciones.</span>
           </h1>
           <p
             className="text-carbon-300 text-lg max-w-lg animate-fade-up opacity-0"
-            style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
-          >
+            style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
             Canchas de primer nivel, vestuarios modernos y un ambiente que te va a hacer
             querer volver cada semana.
           </p>
         </div>
       </section>
+      <section className="border-b border-carbon-700 bg-carbon-800 sticky top-16 z-30">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
+            {CATEGORIAS.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setCategoriaActiva(cat)}
+                className={`flex-shrink-0 px-4 py-2 font-mono text-xs uppercase tracking-widest transition-all duration-200 border ${
+                  categoriaActiva === cat
+                    ? 'bg-verde-500 text-carbon-900 border-verde-500'
+                    : 'border-carbon-600 text-carbon-300 hover:border-verde-600 hover:text-white'
+                }`}>
+                {cat}
+              </button>
+            ))}
+
+            <span className="ml-auto font-mono text-carbon-500 text-xs flex-shrink-0 pl-4">
+              {fotosFiltradas.length} foto{fotosFiltradas.length !== 1 ? 's' : ''}
+            </span>
+          </div>
+        </div>
+      </section>
+      <section className="py-12 max-w-6xl mx-auto px-4">
+        {fotosFiltradas.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-24 gap-4 text-center">
+            <div className="w-12 h-12 border border-carbon-600 flex items-center justify-center">
+              <Image size={20} className="text-carbon-500" />
+            </div>
+            <p className="font-display font-700 text-carbon-400 uppercase text-sm tracking-widest">
+              No hay fotos en esta categoría
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-auto">
+            {fotosFiltradas.map((foto, i) => (
+              <FotoCard
+                key={foto.id}
+                foto={foto}
+                index={i}
+                onOpen={abrirLightbox}/>
+            ))}
+          </div>
+        )}
+      </section>
+      <section className="bg-verde-600 py-16">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <p className="font-mono text-white-900/70 text-xs uppercase tracking-widest mb-3">
+            ¿Te convenciste?
+          </p>
+          <h2 className="font-display font-900 text-carbon-900 text-5xl md:text-6xl uppercase leading-none mb-6">
+            Reservá tu cancha<br />y viví la experiencia.
+          </h2>
+          <Link
+            to="/reservar"
+            className="inline-flex items-center gap-2 bg-carbon-900 text-white font-display font-700 uppercase tracking-widest px-8 py-4 text-sm hover:bg-carbon-700 transition-colors">
+            Reservar ahora <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+      {lightbox !== null && (
+        <Lightbox
+          foto={fotosFiltradas[lightbox]}
+          index={lightbox}
+          total={fotosFiltradas.length}
+          onClose={cerrarLightbox}
+          onPrev={irAPrev}
+          onNext={irANext}/>
+      )}
     </>
   )
 }

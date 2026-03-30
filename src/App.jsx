@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Inicio from './pages/inicio'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import GaleriaPage from './pages/GaleriaPage'
+import AdminRoute from './components/RutaAdmin'
+import PanelAdministrador from './pages/administrador'
 
 
 function App() {
@@ -17,9 +20,12 @@ function App() {
             <Navbar />
             <main className="flex-1">
               <Routes>
-                {/* Públicas */}
                 <Route path="/" element={<Inicio />} />
                 <Route path="/ContactoPage" element={<ContactoPage />} />
+                <Route path="/GaleriaPage" element={<GaleriaPage />} />
+                <Route element={<AdminRoute />}>
+                  <Route path="/admin" element={<PanelAdministrador />} />
+                </Route>
               </Routes>
             </main>
             <Footer />
