@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Inicio from './pages/inicio'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import GaleriaPage from './pages/GaleriaPage'
 
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
             <Navbar />
             <main className="flex-1">
               <Routes>
-                {/* Públicas */}
                 <Route path="/" element={<Inicio />} />
+                <Route path="/GaleriaPage" element={<GaleriaPage />} />
+
               </Routes>
             </main>
             <Footer />

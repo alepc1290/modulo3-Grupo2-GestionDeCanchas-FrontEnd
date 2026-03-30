@@ -187,7 +187,6 @@ function FotoCard({ foto, onOpen, index }) {
 
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden border-b border-carbon-700">
         <div className="absolute inset-0 bg-gradient-to-br from-carbon-900 via-carbon-800 to-carbon-900" />
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-verde-500/50 to-transparent" />

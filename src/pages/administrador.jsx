@@ -9,7 +9,6 @@ import {
 } from '../services/api'
 import { EstadoPagoBadge } from '../components/InstruccionesPago'
 
-// ── FIX 1: CANCHA_VACIA declarada una sola vez ──
 const CANCHA_VACIA  = { nombre: '', tipo: 'futbol5', precio: '', descripcion: '', imagen: '', estado: 'disponible' }
 const PRODUCTO_VACIO = { nombre: '', precio: '', stock: '', descripcion: '', imagen: '' }
 
@@ -119,10 +118,8 @@ function PanelAdministrador() {
     try { await cancelarPago(id); toast.success('Cancelado'); fetchReservasAdmin() }
     catch (err) { toast.error(err.response?.data?.message || 'Error') }
   }
-
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
-      {/* Header */}
       <div className="mb-10">
         <p className="section-label mb-2">Panel de control</p>
         <h1 className="section-title text-5xl md:text-6xl flex items-center gap-3">
@@ -130,7 +127,6 @@ function PanelAdministrador() {
         </h1>
       </div>
 
-      {/* Tabs */}
       <div className="flex gap-1 mb-8 border-b border-carbon-700 overflow-x-auto">
         {TABS.map((t) => (
           <button
@@ -138,14 +134,12 @@ function PanelAdministrador() {
             onClick={() => setTab(t)}
             className={`px-5 py-3 font-display font-bold uppercase tracking-widest text-xs whitespace-nowrap transition-all border-b-2 -mb-px ${
               tab === t ? 'text-verde-400 border-verde-500' : 'text-carbon-400 border-transparent hover:text-white'
-            }`}
-          >
+            }`}>
             {t}
           </button>
         ))}
       </div>
 
-      {/* ==== TAB CANCHAS ==== */}
       {tab === 'canchas' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
