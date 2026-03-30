@@ -11,6 +11,7 @@ import { useAuth } from '../context/AuthContext'
 import InstruccionesPago, { EstadoPagoBadge } from '../components/InstruccionesPago'
 
 const DURACIONES = [1, 2, 3]
+
 function Reservas() {
   const { auth } = useAuth()
   const location = useLocation()
@@ -72,6 +73,7 @@ function Reservas() {
   const horaFin = horaInicio
     ? `${String(parseInt(horaInicio) + duracion).padStart(2, '0')}:00`
     : ''
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!canchaId || !fecha || !horaInicio) { toast.error('Seleccioná cancha, fecha y horario'); return }
@@ -113,25 +115,37 @@ function Reservas() {
     if (slot === horaInicio) return "seleccionado"
     if (disponibilidad.horariosOcupados.includes(slot)) return "ocupado"
     if (!slotEsSeleccionable(slot)) return "no-aplica"
-    return "disponible"}
+    return "disponible"
+  }
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
+
       <div className="mb-10">
         <p className="section-label mb-2">Paso a paso</p>
         <h1 className="section-title text-5xl md:text-6xl">Reservar cancha</h1>
         <p className="text-carbon-300 mt-3 text-sm">Elegí cancha, fecha y horario — pagás por transferencia</p>
       </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+        {/* ── COLUMNA FORMULARIO ── */}
         <div className="lg:col-span-2 space-y-6">
+
+          {/* Instrucciones de pago */}
           {mostrarInstruc && reservaCreada && (
             <InstruccionesPago reserva={reservaCreada} onClose={() => setMostrarInstruc(false)} />
           )}
+
+          {/* Formulario */}
           <div className="bg-carbon-800 border border-carbon-600 p-6 sticky top-20">
             <h2 className="font-display font-bold text-white uppercase tracking-wide text-sm mb-6 flex items-center gap-2">
               <Calendar size={16} className="text-verde-500" /> Nueva reserva
             </h2>
+
             <form onSubmit={handleSubmit} className="space-y-5">
+
+              {/* Paso 1 */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="font-mono text-verde-500 text-xs bg-verde-500/10 border border-verde-700 px-2 py-1">01</span>
@@ -147,7 +161,8 @@ function Reservas() {
                     className="input-field"
                     value={canchaId}
                     onChange={(e) => { setCanchaId(e.target.value); setHoraInicio('') }}
-                    required>
+                    required
+                  >
                     <option value="">— Elegí una cancha —</option>
                     {canchas.map((c) => (
                       <option key={c._id} value={c._id}>
@@ -160,6 +175,8 @@ function Reservas() {
                   <p className="text-carbon-400 text-xs mt-2 pl-1">{canchaSeleccionada.descripcion}</p>
                 )}
               </div>
+
+              {/* Paso 2 */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="font-mono text-verde-500 text-xs bg-verde-500/10 border border-verde-700 px-2 py-1">02</span>
@@ -171,8 +188,11 @@ function Reservas() {
                   min={hoy}
                   value={fecha}
                   onChange={(e) => { setFecha(e.target.value); setHoraInicio('') }}
-                  required/>
+                  required
+                />
               </div>
+
+              {/* Paso 3 */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="font-mono text-verde-500 text-xs bg-verde-500/10 border border-verde-700 px-2 py-1">03</span>
@@ -186,17 +206,21 @@ function Reservas() {
                       className={`flex-1 py-2 text-sm font-display font-bold uppercase tracking-wider transition-all ${duracion === d
                           ? 'bg-verde-500 text-carbon-900'
                           : 'bg-carbon-700 border border-carbon-500 text-carbon-300 hover:border-verde-600 hover:text-white'
-                        }`}>
+                        }`}
+                    >
                       {d}h
                     </button>
                   ))}
                 </div>
               </div>
+
+              {/* Paso 4 */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="font-mono text-verde-500 text-xs bg-verde-500/10 border border-verde-700 px-2 py-1">04</span>
                   <span className="font-display font-bold text-white uppercase tracking-wide text-xs">Horario</span>
                 </div>
+
                 {!canchaId || !fecha ? (
                   <p className="text-carbon-500 text-xs italic">Primero seleccioná cancha y fecha</p>
                 ) : loadingDisp ? (
@@ -206,6 +230,7 @@ function Reservas() {
                   </div>
                 ) : disponibilidad ? (
                   <>
+                    {/* Leyenda */}
                     <div className="flex gap-3 mb-3 flex-wrap">
                       {[
                         { color: 'bg-verde-500', label: 'Libre' },
@@ -217,6 +242,7 @@ function Reservas() {
                         </span>
                       ))}
                     </div>
+
                     <div className="flex flex-wrap gap-1.5">
                       {todosLosSlots.map((slot) => {
                         const estado = getSlotEstado(slot)
@@ -225,7 +251,8 @@ function Reservas() {
                           disponible: 'bg-carbon-700 border border-carbon-500 text-carbon-300 hover:border-verde-500 hover:text-verde-400 cursor-pointer',
                           ocupado: 'bg-red-900/40 border border-red-900 text-red-600 cursor-not-allowed',
                           'no-aplica': 'bg-carbon-800 border border-carbon-600 text-carbon-500 cursor-not-allowed',
-                          'sin-datos': 'bg-carbon-800 border border-carbon-600 text-carbon-500 cursor-not-allowed',}
+                          'sin-datos': 'bg-carbon-800 border border-carbon-600 text-carbon-500 cursor-not-allowed',
+                        }
                         return (
                           <button
                             key={slot} type="button"
@@ -239,6 +266,7 @@ function Reservas() {
                         )
                       })}
                     </div>
+
                     {horaInicio && (
                       <div className="mt-3 bg-verde-500/10 border border-verde-700 px-4 py-2 flex justify-between items-center">
                         <span className="text-verde-400 text-sm font-mono">
@@ -254,22 +282,31 @@ function Reservas() {
                   </>
                 ) : null}
               </div>
+
+              {/* Info pago */}
               <div className="bg-carbon-700 border border-carbon-500 px-4 py-3 flex gap-2 items-center">
                 <CreditCard size={14} className="text-verde-500 flex-shrink-0" />
                 <span className="text-carbon-300 text-xs">El pago se realiza por <strong className="text-white">transferencia bancaria</strong> tras confirmar.</span>
               </div>
+
               <button
                 type="submit"
                 className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
-                disabled={submitting || !horaInicio}>
+                disabled={submitting || !horaInicio}
+              >
                 {submitting
                   ? <><div className="w-4 h-4 border-2 border-carbon-900/40 border-t-carbon-900 rounded-full animate-spin" /> Reservando...</>
-                  : <><CheckCircle size={16} /> Confirmar reserva</>}
+                  : <><CheckCircle size={16} /> Confirmar reserva</>
+                }
               </button>
             </form>
           </div>
         </div>
+
+        {/* ── COLUMNA DERECHA ── */}
         <div className="lg:col-span-3 space-y-8">
+
+          {/* Canchas */}
           <div>
             <h2 className="font-display font-bold text-white uppercase tracking-wide text-sm mb-4 flex items-center gap-2">
               <ChevronRight size={14} className="text-verde-500" /> Canchas disponibles
@@ -289,7 +326,8 @@ function Reservas() {
                       key={c._id} type="button"
                       onClick={() => { setCanchaId(c._id); setHoraInicio('') }}
                       className={`text-left bg-carbon-800 border transition-all duration-200 overflow-hidden group ${sel ? 'border-verde-500' : 'border-carbon-600 hover:border-verde-700'
-                        }`}>
+                        }`}
+                    >
                       {c.imagen ? (
                         <img src={c.imagen} alt={c.nombre} className="w-full h-24 object-cover" />
                       ) : (
@@ -313,10 +351,13 @@ function Reservas() {
               </div>
             )}
           </div>
+
+          {/* Mis reservas */}
           <div>
             <h2 className="font-display font-bold text-white uppercase tracking-wide text-sm mb-4 flex items-center gap-2">
               <Clock size={14} className="text-verde-500" /> Mis reservas
             </h2>
+
             {loadingReservas ? (
               <div className="flex items-center justify-center py-12">
                 <div className="w-8 h-8 border-2 border-carbon-600 border-t-verde-500 rounded-full animate-spin" />
@@ -334,7 +375,8 @@ function Reservas() {
                     key={r._id}
                     className={`bg-carbon-800 border-l-4 border border-carbon-600 ${r.estadoPago === 'confirmado' ? 'border-l-verde-500' :
                         r.estadoPago === 'cancelado' ? 'border-l-red-600' : 'border-l-yellow-500'
-                      }`}>
+                      }`}
+                  >
                     <div className="p-4">
                       <div className="flex justify-between items-start flex-wrap gap-2">
                         <div className="flex-1">
@@ -349,7 +391,8 @@ function Reservas() {
                                   <path fill="#4285F4" d="M24 9.5c3.14 0 5.95 1.08 8.17 2.85l6.1-6.1C34.46 3.09 29.5 1 24 1 14.82 1 7.07 6.48 3.6 14.26l7.1 5.52C12.43 13.48 17.75 9.5 24 9.5z" />
                                 </svg>
                                 {' '}Calendar
-                              </span>)}
+                              </span>
+                            )}
                           </div>
                           <p className="text-carbon-400 text-xs font-mono mb-1">
                             <Calendar size={10} className="inline mr-1" />{formatFecha(r.fecha)}
@@ -359,9 +402,11 @@ function Reservas() {
                             {r.canchaId?.precio && (
                               <span className="text-verde-400 ml-2 font-bold">
                                 ${(r.canchaId.precio * (parseInt(r.horaFin) - parseInt(r.horaInicio))).toLocaleString()}
-                              </span>)}
+                              </span>
+                            )}
                           </p>
                         </div>
+
                         <div className="flex flex-col gap-2 items-end">
                           {r.estadoPago === 'pendiente' && (
                             <button
@@ -370,23 +415,30 @@ function Reservas() {
                                 setReservaCreada({
                                   _id: r._id, cancha: r.canchaId?.nombre,
                                   fecha: r.fecha, horaInicio: r.horaInicio, horaFin: r.horaFin,
-                                  precio: r.canchaId?.precio || 0, estadoPago: r.estadoPago,})
+                                  precio: r.canchaId?.precio || 0, estadoPago: r.estadoPago,
+                                })
                                 setMostrarInstruc(true)
-                                window.scrollTo({ top: 0, behavior: 'smooth' })}}>
+                                window.scrollTo({ top: 0, behavior: 'smooth' })
+                              }}
+                            >
                               <CreditCard size={12} /> Ver pago
-                            </button>)}
+                            </button>
+                          )}
                           <button
                             className="btn-danger flex items-center gap-1"
                             onClick={() => handleEliminar(r._id)}
-                            title="Cancelar reserva">
+                            title="Cancelar reserva"
+                          >
                             <Trash2 size={12} /> Cancelar
                           </button>
                         </div>
                       </div>
+
                       {r.estadoPago === 'pendiente' && (
                         <div className="mt-3 border border-yellow-900 bg-yellow-900/20 px-3 py-2 text-yellow-400 text-xs font-mono">
-                          Reserva pendiente de pago. Realizá la transferencia y enviá el comprobante.
-                        </div>)}
+                          ⚠ Reserva pendiente de pago. Realizá la transferencia y enviá el comprobante.
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
