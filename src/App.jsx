@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import GaleriaPage from './pages/GaleriaPage'
 import AdminRoute from './components/RutaAdmin'
 import PanelAdministrador from './pages/administrador'
+import NosotrosPage from './pages/NosotrosPage'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/" element={<Inicio />} />
                 <Route path="/ContactoPage" element={<ContactoPage />} />
                 <Route path="/GaleriaPage" element={<GaleriaPage />} />
+                <Route path="/NosotrosPage" element={<NosotrosPage />} />
                 <Route element={<AdminRoute />}>
                   <Route path="/admin" element={<PanelAdministrador />} />
                 </Route>
