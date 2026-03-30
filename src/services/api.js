@@ -1,5 +1,8 @@
 import { axiosClient } from '../helpers/axiosClient'
 
+//REGISTRO
+const registerUser = (data) => axiosClient.post('/auth/register', data)
+
 
 // ─── CANCHAS ─────────────────────────────────────────────────────────────────
 const getCanchas = () => axiosClient.get('/canchas')
@@ -18,6 +21,7 @@ const deleteProducto = (id) => axiosClient.delete(`/productos/${id}`)
 const getReservasAdmin = () => axiosClient.get('/reservas/admin')
 const confirmarPago = (id) => axiosClient.patch(`/reservas/${id}/confirmar-pago`)
 const cancelarPago = (id) => axiosClient.patch(`/reservas/${id}/cancelar-pago`)
+const getDatosTransferencia = () => axiosClient.get('/reservas/datos-transferencia')
 
 // ─── USUARIOS (admin) ────────────────────────────────────────────────────────
 const getUsers = () => axiosClient.get('/users')
@@ -36,5 +40,7 @@ export {
     confirmarPago,
     cancelarPago,
     getUsers,
-    deleteUser
+    deleteUser,
+    registerUser,
+    getDatosTransferencia
 }

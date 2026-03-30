@@ -46,7 +46,6 @@ function Inicio() {
 
   return (
     <>
-      {/* ── HERO ── */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -100,7 +99,6 @@ function Inicio() {
             </Link>
           </div>
 
-          {/* Stats */}
           <div
             className="flex gap-8 mt-16 animate-fade-up opacity-0"
             style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
@@ -123,7 +121,6 @@ function Inicio() {
         </div>
       </section>
 
-      {/* ── CARACTERISTICAS ── */}
       <section className="py-16 border-y border-carbon-700 bg-carbon-800">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -144,7 +141,6 @@ function Inicio() {
         </div>
       </section>
 
-      {/* ── CANCHAS ── */}
       <section className="py-20 max-w-6xl mx-auto px-4">
         <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div>
@@ -184,9 +180,7 @@ function Inicio() {
         )}
       </section>
       <Carousel/>
-      {/* ── CTA BANNER ── */}
 
-      {/* ── PRODUCTOS ── */}
       {productos.length > 0 && (
         <section className="py-20 max-w-6xl mx-auto px-4">
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
