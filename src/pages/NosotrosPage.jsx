@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Agustina from "../components/img/agustina.png"
 import Ivan from "../components/img/ivan.png"
 import Carlo from "../components/img/carlo.png"
+import Gonzalo from "../components/img/gonzalo.png"
 import {
   ArrowRight,
   Zap,
@@ -42,10 +43,10 @@ const VALORES = [
 
 const GRUPO = [
   { name: "Nicolas Castro", role: "Backend Developer", img: "N" },
-  { name: "Agustina Valverdi", role: "Mokup Design", img: Agustina },
-  { name: "Gonzalo Nuñez", role: "Empleado de Carlos", img: "G" },
-  { name: "Costa Carlos", role: "Jefe de Gonzalo", img: Carlo },
-  { name: "Ivan Robles", role: "Beta Tester", img: Ivan },
+  { name: "Agustina Valverdi", role: "FrontEnd Design", img: Agustina },
+  { name: "Gonzalo Nuñez", role: "FrontEnd Developer", img: Gonzalo },
+  { name: "Costa Carlos", role: "Frontend Develoer", img: Carlo },
+  { name: "Ivan Robles", role: "Tester", img: Ivan },
 ];
 
 const STATS = [
