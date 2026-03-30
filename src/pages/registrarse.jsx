@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router'
 import { toast } from 'sonner'
 import { UserPlus, Zap, CheckCircle, Mail } from 'lucide-react'
 import { registerUser } from '../services/api'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../components/AuthContext'
 import logo from "../components/img/LogoImagen.png"
 
 function Register() {

@@ -2,6 +2,7 @@ import { axiosClient } from '../helpers/axiosClient'
 
 //REGISTRO
 const registerUser = (data) => axiosClient.post('/auth/register', data)
+const loginUser = (data) => axiosClient.post('/auth/login', data)
 
 
 // ─── CANCHAS ─────────────────────────────────────────────────────────────────
@@ -39,6 +40,7 @@ export {
     getReservasAdmin,
     confirmarPago,
     cancelarPago,
+    loginUser,
     getUsers,
     deleteUser,
     registerUser,

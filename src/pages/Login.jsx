@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router'
 import { toast } from 'sonner'
 import { LogIn, Zap } from 'lucide-react'
 import { loginUser } from '../services/api'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../components/AuthContext'
 import { API_URL } from '../config/env'
 import logo from "../components/img/LogoImagen.png"
 
