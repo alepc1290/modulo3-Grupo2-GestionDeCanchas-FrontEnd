@@ -7,7 +7,7 @@ import {
   getUsers, deleteUser,
   getReservasAdmin, confirmarPago, cancelarPago,
 } from '../services/api'
-import { EstadoPagoBadge } from '../components/InstruccionesPago'
+import { EstadoPagoBadge } from '../components/InstruccionesDePago'
 
 const CANCHA_VACIA  = { nombre: '', tipo: 'futbol5', precio: '', descripcion: '', imagen: '', estado: 'disponible' }
 const PRODUCTO_VACIO = { nombre: '', precio: '', stock: '', descripcion: '', imagen: '' }
@@ -244,7 +244,6 @@ function PanelAdministrador() {
         </div>
       )}
 
-      {/* ==== TAB PRODUCTOS ==== */}
       {tab === 'productos' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
@@ -296,7 +295,6 @@ function PanelAdministrador() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-carbon-600">
-                      {/* ── FIX 3: .map() directo sin llaves de objeto ── */}
                       {['Producto', 'Precio', 'Stock', ''].map((h) => (
                         <th key={h} className="text-left px-4 py-3 font-mono text-xs text-carbon-400 uppercase tracking-widest">{h}</th>
                       ))}
@@ -329,7 +327,6 @@ function PanelAdministrador() {
         </div>
       )}
 
-      {/* ==== TAB USUARIOS ==== */}
       {tab === 'usuarios' && (
         <div>
           {loadingU ? (
@@ -341,7 +338,6 @@ function PanelAdministrador() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-carbon-600">
-                    {/* ── FIX 3: mismo fix ── */}
                     {['Nombre', 'Email', 'Rol', 'Registro', ''].map((h) => (
                       <th key={h} className="text-left px-4 py-3 font-mono text-xs text-carbon-400 uppercase tracking-widest">{h}</th>
                     ))}
@@ -372,7 +368,6 @@ function PanelAdministrador() {
         </div>
       )}
 
-      {/* ==== TAB RESERVAS ==== */}
       {tab === 'reservas' && (
         <div>
           <div className="flex justify-between items-center mb-5 flex-wrap gap-3">
@@ -393,7 +388,6 @@ function PanelAdministrador() {
               <table className="w-full text-sm min-w-[700px]">
                 <thead>
                   <tr className="border-b border-carbon-600">
-                    {/* ── FIX 3: mismo fix ── */}
                     {['Usuario', 'Cancha', 'Fecha', 'Horario', 'Estado', 'Acciones'].map((h) => (
                       <th key={h} className="text-left px-4 py-3 font-mono text-xs text-carbon-400 uppercase tracking-widest">{h}</th>
                     ))}
@@ -402,7 +396,6 @@ function PanelAdministrador() {
                 <tbody className="divide-y divide-carbon-700">
                   {reservasAdmin.map((r) => {
                     const estadoPago = r.estadoPago || 'pendiente'
-                    // ── FIX 4: horas declarado antes de total ──
                     const horas = parseInt(r.horaFin) - parseInt(r.horaInicio)
                     const total = r.precio * horas
                     return (
