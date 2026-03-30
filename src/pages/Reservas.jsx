@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect, useState, useCallback } from 'react'
 import { useLocation } from 'react-router'
 import { toast } from 'sonner'
@@ -7,8 +6,8 @@ import {
   getCanchas, createReserva, getReservas,
   deleteReserva, getDisponibilidad,
 } from '../services/api'
-import { useAuth } from '../context/AuthContext'
-import InstruccionesPago, { EstadoPagoBadge } from '../components/InstruccionesPago'
+import { useAuth } from '../components/AuthContext'
+import InstruccionesPago, { EstadoPagoBadge } from '../components/InstruccionesDePago'
 
 const DURACIONES = [1, 2, 3]
 

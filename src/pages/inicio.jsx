@@ -75,10 +75,10 @@ function Inicio() {
             <span className="text-verde-400">otro nivel.</span>
           </h1>
           <p
-            className="text-carbon-300 text-lg max-w-lg mb-10 animate-fade-up opacity-0"
+            className="text-white-900/70 text-lg max-w-lg mb-10 animate-fade-up opacity-0"
             style={{ animationDelay: "200ms", animationFillMode: "forwards" }}
           >
-            Reservá tu cancha de fútbol 5 o fútbol 7 en segundos. Sin llamadas,
+            Reservá tu cancha de futsal, fútbol 5, fútbol 7 o futbol 11 en segundos!!. Sin llamadas,
             sin complicaciones.
           </p>
           <div

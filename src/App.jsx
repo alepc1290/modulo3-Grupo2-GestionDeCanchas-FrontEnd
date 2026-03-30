@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { AuthProvider } from './components/AuthContext'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Inicio from './pages/inicio'
@@ -12,11 +11,12 @@ import ContactoPage from './pages/ContactoPage'
 import Login from './pages/Login'
 import Register from './pages/registrarse'
 import Productos from './pages/Productos'
-
+import Reservas from './pages/Reservas'
+import PrivateRoute from './components/PrivateRoute'
+import GoogleAuthSuccess from './pages/GoogleAuthSuccess'
+import VerifyEmail from './pages/VerifyEmail'
 
 function App() {
-
-
   return (
     <>
       <AuthProvider>
@@ -32,13 +32,16 @@ function App() {
                 <Route path="/ContactoPage" element={<ContactoPage />} />
                 <Route path="/GaleriaPage" element={<GaleriaPage />} />
                 <Route path="/NosotrosPage" element={<NosotrosPage />} />
+                <Route path="/verify-email" element={<VerifyEmail />} />
+
+                <Route path="/auth/google/success" element={<GoogleAuthSuccess />} />
+
                 <Route element={<AdminRoute />}>
                   <Route path="/admin" element={<PanelAdministrador />} />
                 </Route>
-                
-                {/* solo cuando esta logueado se puede acceder a las reservas */}
+
                 <Route element={<PrivateRoute />}>
-                  <Route path="/reservas" element={<Reservas />} />
+                  <Route path="/Reservas" element={<Reservas />} />
                 </Route>
 
                 <Route

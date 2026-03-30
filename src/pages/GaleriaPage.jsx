@@ -267,7 +267,7 @@ function FotoCard({ foto, onOpen, index }) {
       </section>
       <section className="bg-verde-600 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="font-mono text-white-900/70 text-xs uppercase tracking-widest mb-3">
+          <p className="font-mono text-white-900/70 text-xl uppercase tracking-widest mb-3">
             ¿Te convenciste?
           </p>
           <h2 className="font-display font-900 text-carbon-900 text-5xl md:text-6xl uppercase leading-none mb-6">

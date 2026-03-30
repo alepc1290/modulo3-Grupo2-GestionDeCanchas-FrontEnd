@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { Users, ArrowRight } from 'lucide-react'
 
-const TIPO_LABEL = { futbol5: 'Fútbol 5', futbol7: 'Fútbol 7', futbol11: 'Fútbol 11' }
+const TIPO_LABEL = { futbol5: 'Fútbol 5', futbol7: 'Fútbol 7', futbol11: 'Fútbol 11', futbolSala: 'Fútbol Sala'}
 
 function CanchaCard({ cancha, showReservar = true }) {
   const disponible = cancha.estado === 'disponible'
@@ -36,7 +36,6 @@ function CanchaCard({ cancha, showReservar = true }) {
         </span>
       </div>
 
-      {/* Contenido */}
       <div className="p-5 flex flex-col flex-1">
         <h3 className="font-display font-black text-white text-xl uppercase tracking-wide mb-1">
           {cancha.nombre}

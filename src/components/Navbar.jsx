@@ -15,6 +15,7 @@ function Navbar() {
     { to: '/', label: 'Inicio', end: true },
     { to: '/reservas', label: 'Reservar' },
     { to: '/productos', label: 'Tienda' },
+    { to: '/GaleriaPage', label: 'Mas Info' },
     ...(isAdmin ? [{ to: '/admin', label: 'Admin', admin: true }] : []),
   ]
 
