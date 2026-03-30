@@ -19,6 +19,8 @@ function App() {
               <Routes>
                 {/* Públicas */}
                 <Route path="/" element={<Inicio />} />
+
+
                 <Route path="/ContactoPage" element={<ContactoPage />} />
               </Routes>
             </main>
