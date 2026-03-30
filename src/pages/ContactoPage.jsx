@@ -12,7 +12,6 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-/* ─── Data ─────────────────────────────────────────────── */
 const CONTACT_INFO = [
   {
     icon: MapPin,
@@ -57,7 +56,6 @@ const INITIAL = {
   mensaje: "",
 };
 
-/* ─── Form field components ─────────────────────────────── */
 function Label({ children, required }) {
   return (
     <label className="block font-mono text-xs uppercase tracking-widest text-white-300 mb-2">
@@ -126,7 +124,6 @@ function Select({ error, children, ...props }) {
   );
 }
 
-/* ─── Validate ──────────────────────────────────────────── */
 function validate(fields) {
   const errs = {};
   if (!fields.nombre.trim()) errs.nombre = "El nombre es requerido";
@@ -139,11 +136,10 @@ function validate(fields) {
   return errs;
 }
 
-/* ─── Page ──────────────────────────────────────────────── */
  function ContactoPage() {
   const [fields, setFields] = useState(INITIAL);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
   const [touched, setTouched] = useState({});
 
   const set = (key) => (e) => {
@@ -170,7 +166,6 @@ function validate(fields) {
     }
 
     setStatus("loading");
-    // Simulate async send
     setTimeout(() => {
       setStatus("success");
       setFields(INITIAL);
@@ -181,13 +176,11 @@ function validate(fields) {
 
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden border-b border-carbon-700">
         <div className="absolute inset-0 bg-gradient-to-br from-carbon-900 via-carbon-800 to-carbon-900" />
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-verde-500/50 to-transparent" />
         <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-verde-500/20 to-transparent hidden lg:block" />
 
-        {/* Background grid */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -223,10 +216,8 @@ function validate(fields) {
         </div>
       </section>
 
-      {/* ── BODY ──────────────────────────────────────────── */}
       <section className="py-20 max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* ── Left: Contact info ──────────────────────── */}
           <aside className="lg:col-span-2 flex flex-col gap-6">
             <div>
               <p className="section-label mb-3">Información de contacto</p>
@@ -254,8 +245,6 @@ function validate(fields) {
                 </div>
               ))}
             </div>
-
-            {/* Quick CTA */}
             <div className="border border-verde-600 p-6 mt-2">
               <p className="font-mono text-verde-500 text-xs uppercase tracking-widest mb-2">
                 ¿Ya sabés lo que querés?
@@ -272,7 +261,6 @@ function validate(fields) {
             </div>
           </aside>
 
-          {/* ── Right: Form ─────────────────────────────── */}
           <div className="lg:col-span-3">
             {status === "success" ? (
               /* ── Success state ── */
@@ -296,10 +284,8 @@ function validate(fields) {
                 </button>
               </div>
             ) : (
-              /* ── Form ── */
               <form onSubmit={handleSubmit} noValidate>
                 <div className="border border-carbon-600 bg-carbon-800">
-                  {/* Form header */}
                   <div className="px-6 py-4 border-b border-carbon-700 flex items-center gap-3">
                     <span className="w-2 h-2 rounded-full bg-verde-500 animate-pulse-dot" />
                     <span className="font-mono text-xs text-green-300 uppercase tracking-widest">
@@ -308,7 +294,6 @@ function validate(fields) {
                   </div>
 
                   <div className="p-6 flex flex-col gap-6">
-                    {/* Row: Nombre + Telefono */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
                         <Label required>Nombre completo</Label>
@@ -333,7 +318,6 @@ function validate(fields) {
                       </div>
                     </div>
 
-                    {/* Email */}
                     <div>
                       <Label required>Email</Label>
                       <Input
@@ -346,7 +330,6 @@ function validate(fields) {
                       />
                     </div>
 
-                    {/* Motivo */}
                     <div>
                       <Label required>Motivo de contacto</Label>
                       <Select
@@ -366,7 +349,6 @@ function validate(fields) {
                       </Select>
                     </div>
 
-                    {/* Mensaje */}
                     <div>
                       <Label required>Mensaje</Label>
                       <Textarea
@@ -389,7 +371,6 @@ function validate(fields) {
                       </div>
                     </div>
 
-                    {/* Submit */}
                     <div className="flex items-center justify-between pt-2 border-t border-carbon-700 gap-4">
                       <p className="text-carbon-500 text-xs font-mono">
                         <span className="text-verde-500">*</span> Campos
