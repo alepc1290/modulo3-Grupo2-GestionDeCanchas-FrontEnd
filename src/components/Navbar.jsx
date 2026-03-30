@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Menu, X, LogOut, User, Shield } from 'lucide-react'
 import { useAuth } from './AuthContext'
 import logo from "./img/LogoImagen.png"

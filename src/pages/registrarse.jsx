@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { UserPlus, Zap, CheckCircle, Mail } from 'lucide-react'
 import { registerUser } from '../services/api'
